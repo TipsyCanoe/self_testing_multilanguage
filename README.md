@@ -1,224 +1,267 @@
-# Coding Skills Assessment Platform
+# Self-Testing Multi-Language Coding Platform
 
-A comprehensive, multi-language coding challenge repository with automated testing and grading for personal skill development.
+A comprehensive coding challenge repository with **automated testing and grading** across C, Java, and Python. Practice programming fundamentals, get instant feedback, and track your progress.
 
 ## 🎯 Overview
 
-This repository contains progressively difficult coding challenges across multiple languages, designed to help you assess and improve your programming skills from beginner to master level.
+This repository contains **30 beginner-level coding challenges** (10 per language) with complete automated testing infrastructure. Each challenge includes a problem description, solution template, and comprehensive test suite. Perfect for learning, interview prep, or maintaining your coding skills.
 
-## 📚 Difficulty Levels
+## 💻 Languages & Challenges
 
-- **Beginner**: Fundamentals and basic concepts
-- **Intermediate**: Complex algorithms and data structures
-- **Advanced**: System design, optimization, and advanced patterns
-- **Master**: Expert-level problems and real-world scenarios
+### **Python** (10 challenges)
+Functions, lists, dictionaries, string manipulation, list comprehension, and iteration patterns.
 
-## 💻 Languages Supported
+### **C** (10 challenges)  
+Pointers, arrays, memory management, structs, and systems programming fundamentals.
 
-- **C**: Systems programming, memory management, pointers
-- **Java**: OOP, design patterns, enterprise concepts
-- **Python**: Scripting, data processing, algorithms
+### **Java** (10 challenges)
+Object-oriented programming, classes, collections, exception handling, and enterprise patterns.
 
-## 🧪 Testing & Grading
-
-### Automated Testing
-- **Python challenges**: Tested with `pytest`
-- **Java challenges**: Tested with `JUnit 5`
-- **C challenges**: Tested with custom test harness
-
-### Grading System
-Run automated tests to get your grade:
-```bash
-# Test all challenges
-python grade_all.py
-
-# Test specific level
-python grade_all.py --level beginner
-
-# Test specific language
-python grade_all.py --language python
-
-# Test specific challenge
-python grade_all.py --challenge beginner/python/01_hello_world
-```
+**Total: 30 challenges** covering fundamental programming concepts across three languages.
 
 ## 📁 Repository Structure
 
 ```
-coding-assessment/
-├── beginner/
-│   ├── c/
-│   ├── java/
-│   └── python/
-├── intermediate/
-│   ├── c/
-│   ├── java/
-│   └── python/
-├── advanced/
-│   ├── c/
-│   ├── java/
-│   └── python/
-├── master/
-│   ├── c/
-│   ├── java/
-│   └── python/
-├── tests/
-│   ├── c/
-│   ├── java/
-│   └── python/
-├── grading/
-│   ├── grade_all.py
-│   └── report_generator.py
-└── README.md
+self_testing_multilanguage/
+├── beginner/                    # All challenges (only level currently)
+│   ├── python/                  # 10 Python challenges
+│   │   ├── 01_hello_world/
+│   │   ├── 02_sum_two_numbers/
+│   │   ├── 03_is_even/
+│   │   └── ... (7 more)
+│   ├── c/                       # 10 C challenges  
+│   │   ├── 01_hello_world/
+│   │   ├── 02_sum_two_numbers/
+│   │   └── ... (8 more)
+│   └── java/                    # 10 Java challenges
+│       ├── 01_hello_world/
+│       ├── 02_sum_two_numbers/
+│       └── ... (8 more)
+│
+├── tests/                       # Automated test suites
+│   ├── python/                  # pytest test files (10 files)
+│   ├── c/                       # C test runner (run_tests.sh)
+│   └── java/                    # Java test infrastructure
+│
+├── grading/                     # Automated grading system
+│   ├── grade_all.py            # Main grading script
+│   └── view_progress.py        # Progress tracking
+│
+├── notebooks/                   # Jupyter notebooks for Python challenges
+│   └── beginner_python_challenges.ipynb
+│
+└── [Documentation files...]     # Guides and references
 ```
 
-## 🚀 Getting Started
+## 🧪 Automated Testing & Grading
 
-### Prerequisites
+### Run All Tests
 ```bash
-# Python 3.8+
-python --version
-
-# Java 11+
-java -version
-javac -version
-
-# GCC for C
-gcc --version
-
-# Install Python dependencies
-pip install pytest pytest-json-report
-
-# Install Java dependencies (Maven)
-mvn clean install
+# Test all languages at once
+./test_all.sh
+# or
+python grading/grade_all.py
 ```
 
-### Running Your First Challenge
-
-1. Navigate to a challenge directory
-2. Read the `README.md` for requirements
-3. Implement your solution
-4. Run tests to verify
-5. Check your grade
-
-### Example Workflow
+### Test by Language
 ```bash
-# 1. Start with a beginner Python challenge
-cd beginner/python/01_hello_world
+# Python only
+python grading/grade_all.py --language python
 
-# 2. Read the challenge
-cat README.md
+# C only  
+python grading/grade_all.py --language c
 
-# 3. Implement your solution in solution.py
-
-# 4. Run tests
-pytest ../../tests/python/test_01_hello_world.py -v
-
-# 5. Get your grade
-python ../../../grading/grade_all.py --challenge beginner/python/01_hello_world
+# Java only
+python grading/grade_all.py --language java
 ```
 
-## 📊 Grading Criteria
+### Test Specific Challenge
+```bash
+python grading/grade_all.py --challenge beginner/python/01_hello_world
+```
 
-- **100%**: All tests pass
-- **75-99%**: Most tests pass, minor issues
-- **50-74%**: Some tests pass, significant issues
-- **25-49%**: Few tests pass, major problems
-- **0-24%**: Most/all tests fail
+### Test Manually
+```bash
+# Python (using pytest)
+pytest tests/python/test_01_hello_world.py -v
 
-## 🎓 Skills Covered
+# C (compile and run)
+cd beginner/c/01_hello_world
+gcc solution.c -o solution && ./solution
 
-### Beginner
-- Variables and data types
-- Control flow (if/else, loops)
-- Functions and methods
-- Basic data structures (arrays, lists)
-- String manipulation
-- File I/O
-- Basic OOP concepts
+# Java (compile and run)
+cd beginner/java/01_hello_world
+javac Solution.java && java Solution
+```
 
-### Intermediate (Coming Soon)
-- Advanced data structures (trees, graphs, heaps)
-- Algorithm design and analysis
-- Recursion and dynamic programming
-- Design patterns
-- Error handling and debugging
-- Unit testing
+## 📊 Grading System
 
-### Advanced (Coming Soon)
-- System design
-- Concurrency and parallelism
-- Memory optimization
-- Database integration
-- API design
-- Security best practices
+Grades are calculated based on test pass rate:
 
-### Master (Coming Soon)
-- Distributed systems
-- Performance optimization
-- Advanced algorithms
-- Architecture patterns
-- Real-world problem solving
+| Score | Grade | Description |
+|-------|-------|-------------|
+| 100% | A+ | Perfect! All tests pass |
+| 90-99% | A | Excellent |
+| 80-89% | B | Good |
+| 70-79% | C | Satisfactory |
+| 60-69% | D | Needs improvement |
+| <60% | F | Keep trying |
 
-## 📈 Tracking Progress
-
-Your progress is automatically tracked. View your statistics:
+### View Your Progress
 ```bash
 python grading/view_progress.py
 ```
 
+Shows completion statistics, average scores, and recent activity across all challenges.
+
+## 🚀 Quick Start
+
+### 1. Verify Prerequisites
+```bash
+python verify_setup.py
+```
+
+**Required:**
+- Python 3.8+
+- GCC (for C challenges)
+- Java 11+ (for Java challenges)
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Try Your First Challenge
+```bash
+# Navigate to a challenge
+cd beginner/python/01_hello_world
+
+# Read the problem
+cat README.md
+
+# Edit solution.py with your implementation
+
+# Run tests
+pytest ../../tests/python/test_01_hello_world.py -v
+
+# Get your grade
+python ../../../grading/grade_all.py --challenge beginner/python/01_hello_world
+```
+
+## 🎓 Skills You'll Practice
+
+### Core Programming Concepts
+- Functions and method definitions
+- Variables and data types
+- Control flow (if/else, loops)
+- Basic data structures (arrays, lists, dictionaries)
+- String manipulation and processing
+
+### Language-Specific Skills
+- **Python**: List comprehension, dictionary operations, Pythonic patterns
+- **C**: Pointer arithmetic, memory management, manual string handling
+- **Java**: OOP principles, classes/objects, exception handling, collections
+
+### Testing & Quality
+- Writing testable code
+- Understanding test cases
+- Debugging failed tests
+- Code verification and validation
+
 ## 📚 Documentation
 
-- **[Getting Started Guide](GETTING_STARTED.md)** - Complete beginner's guide
-- **[Quick Reference](QUICK_REFERENCE.md)** - Common commands and shortcuts
-- **[Challenge Index](CHALLENGE_INDEX.md)** - Complete list of all challenges
-- **[Setup Instructions](SETUP.md)** - Installation and configuration
-- **[Examples](EXAMPLES.md)** - Sample solutions and patterns
-- **[Troubleshooting](TROUBLESHOOTING.md)** - Common issues and fixes
-- **[Roadmap](ROADMAP.md)** - Future plans and feature requests
-- **[Project Summary](PROJECT_SUMMARY.md)** - What's been built
+| Document | Description |
+|----------|-------------|
+| [START_HERE.md](START_HERE.md) | Best starting point for new users |
+| [GETTING_STARTED.md](GETTING_STARTED.md) | Comprehensive beginner guide |
+| [SETUP.md](SETUP.md) | Installation and configuration |
+| [CHALLENGE_INDEX.md](CHALLENGE_INDEX.md) | Complete list of all challenges |
+| [QUICK_REFERENCE.md](QUICK_REFERENCE.md) | Common commands and shortcuts |
+| [EXAMPLES.md](EXAMPLES.md) | Sample solutions and patterns |
+| [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Common issues and fixes |
+| [PROJECT_SUMMARY.md](PROJECT_SUMMARY.md) | What's been built |
+| [ROADMAP.md](ROADMAP.md) | Future plans |
 
-## 🎯 Current Status
+## 🔄 Auto-Grading Submissions
 
-✅ **Beginner Level Complete** (30 challenges)
-- 10 Python challenges with full test coverage
-- 10 C challenges with basic testing
-- 10 Java challenges ready for JUnit tests
-- Automated grading system
-- Progress tracking
-- Comprehensive documentation
+Want solutions to be **automatically graded** when you save or commit? Three powerful options available:
 
-🔨 **Coming Soon**
-- Intermediate level (30 more challenges)
-- Advanced level
-- Master level
+### Option 1: Watch Mode (Real-time)
+```bash
+# Auto-grade as you save files
+python3 grading/watch_and_grade.py
+```
+Monitors your solution files and runs tests automatically when changes are detected.
+
+### Option 2: Git Pre-Commit Hook
+```bash
+# Install the pre-commit hook
+cp .git/hooks/pre-commit-autograde .git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
+```
+Automatically tests your code before each commit and blocks commits if tests fail.
+
+### Option 3: GitHub Actions (CI/CD)
+Push your code to GitHub and get automatic grading via GitHub Actions. Tests run on every push and pull request. See `.github/workflows/auto-grade.yml` for configuration.
+
+📖 **[Read the full Auto-Grading Guide →](AUTO_GRADING_QUICKSTART.md)**
+
+## 💡 Use Cases
+
+### 🎯 Personal Skill Assessment
+Work through challenges at your own pace, track progress, and identify areas for improvement.
+
+### 📝 Interview Preparation
+Practice common coding interview problems (FizzBuzz, array manipulation, string processing) across multiple languages.
+
+### 🔧 Skill Maintenance
+Regular practice to stay sharp between jobs or projects. Implement solutions multiple ways to deepen understanding.
+
+### 🎓 Learning New Languages
+Use challenges in a familiar language as a reference while learning new syntax and paradigms.
+
+## 📊 Project Statistics
+
+- **30 total challenges** (10 Python, 10 C, 10 Java)
+- **50+ test cases** for Python alone
+- **30+ individual README files** with problem descriptions
+- **Automated grading** with detailed reports
+- **Progress tracking** with statistics
+- **90+ files created**, 4,000+ lines of code
+
+## 🔮 Future Expansion
+
+This repository currently contains **beginner-level challenges only**. Future levels could include:
+
+- **Intermediate**: Binary search, linked lists, recursion, dynamic programming, hash tables
+- **Advanced**: System design, concurrency, memory optimization, API design
+- **Master**: Distributed systems, performance optimization, expert algorithms
 
 ## 🤝 Contributing
 
-This is a personal assessment repository, but feel free to fork and customize for your own learning!
+This is a personal learning repository. Feel free to:
+- Fork for your own use
+- Submit issues for bugs
+- Suggest new challenges
+- Share your solutions
 
-## 📝 License
+## �� License
 
-MIT License - Feel free to use for personal learning.
+MIT License - Free to use for personal learning and education.
 
 ---
 
 ## 🚀 Ready to Start?
 
 ```bash
-# 1. Verify your setup
-python verify_setup.py
+# Quick setup
+python verify_setup.py && pip install -r requirements.txt
 
-# 2. Install dependencies
-pip install -r requirements.txt
+# Start with Python challenge #1
+cd beginner/python/01_hello_world && cat README.md
 
-# 3. Read the getting started guide
-cat GETTING_STARTED.md
-
-# 4. Start your first challenge!
-cd beginner/python/01_hello_world
+# Or read the getting started guide
+cat START_HERE.md
 ```
-
----
 
 **Happy Coding! 🚀**
